@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "command": "pnpm start",
+            "name": "Start Debug",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "command": "pnpm watch",
+            "name": "Watch Debug",
+            "request": "launch",
+            "type": "node-terminal"
+        }
+    ]
+}

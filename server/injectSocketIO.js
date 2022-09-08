@@ -1,5 +1,6 @@
 import { Server } from 'socket.io';
 import { allowedOriginsSocketIOMiddleware } from './allowedOrigins.js';
+import { nanoidAsync } from '../src/lib/nanoids/index.js';
 
 
 export const injectSocketIO = server => {
@@ -20,7 +21,7 @@ export const injectSocketIO = server => {
 
     io.on('connection', (socket) => {
 
-        const username = `User ${Math.round(Math.random() * 999999)}`;
+        const username = `${socket.id}`;
 
         socket.emit('name', username);
 

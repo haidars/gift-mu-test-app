@@ -1,5 +1,6 @@
 <script>
 	import { IconHeart } from '$lib/IconHeart';
+	import { IconLoad } from '$lib/IconLoad';
 	import { socketStore } from '$lib/socket/store';
 </script>
 
@@ -14,9 +15,24 @@
 	</div>
 
 	<p class="text-center">And my name is</p>
-	<p class="text-center font-bold">#{$socketStore.username}</p>
+	{#if $socketStore.connecting}
+		<div class="w-full flex justify-center pt-2">
+			<IconLoad class="h-6 aspect-square text-stone-800" />
+		</div>
+	{:else}
+		<p class="text-center font-bold text-stone-800">
+			Session #{$socketStore.sid}
+		</p>
+	{/if}
 
-	<a href="/todos">Try my To do list here</a>
+	<div class="w-full flex justify-center">
+		<a
+			href="/todos"
+			class="flex items-center justify-center bg-blue-500 px-3 py-2 rounded-3xl text-white"
+		>
+			<span>Try my To do list here</span>
+		</a>
+	</div>
 </section>
 
 <style lang="scss">

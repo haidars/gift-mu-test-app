@@ -4,7 +4,8 @@
 	"scripts": {
 		"start": "env-cmd -e production node ./server/index.js",
 		"watch": "env-cmd -e development vite dev",
-		"build": "vite build",
+		"build:dev": "env-cmd -e development vite build",
+		"build": "env-cmd -e production vite build",
 		"preview": "env-cmd -e development vite preview"
 	},
 	"devDependencies": {

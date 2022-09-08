@@ -1,0 +1,1 @@
+window.__sveltekit_data = (function(a,b){return {type:b,nodes:[{type:b,data:{env:"production",host:"localhost",port:"50001"},uses:{dependencies:a,params:a,parent:a,url:a}},null]}}(void 0,"data"))

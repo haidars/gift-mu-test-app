@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../.svelte-kit/adapter-node/chunks/hooks.server.js"],
+  "sourcesContent": ["const handle = async ({ event, resolve }) => {\n  let userid = event.cookies.get(\"userid\");\n  if (!userid) {\n    userid = crypto.randomUUID();\n    event.cookies.set(\"userid\", userid, { path: \"/\" });\n  }\n  event.locals.userid = userid;\n  return resolve(event);\n};\nexport {\n  handle\n};\n"],
+  "mappings": ";;;AAAA,IAAM,SAAS,OAAO,EAAE,OAAO,QAAQ,MAAM;AAC3C,MAAI,SAAS,MAAM,QAAQ,IAAI,QAAQ;AACvC,MAAI,CAAC,QAAQ;AACX,aAAS,OAAO,WAAW;AAC3B,UAAM,QAAQ,IAAI,UAAU,QAAQ,EAAE,MAAM,IAAI,CAAC;AAAA,EACnD;AACA,QAAM,OAAO,SAAS;AACtB,SAAO,QAAQ,KAAK;AACtB;",
+  "names": []
+}
