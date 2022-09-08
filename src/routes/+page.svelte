@@ -24,7 +24,7 @@
 			Session #{$socketStore.sid}
 		</p>
 	{/if}
-
+	<!-- something -->
 	<div class="w-full flex justify-center">
 		<a
 			href="/todos"
