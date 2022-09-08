@@ -28,7 +28,7 @@
 	<div class="w-full flex justify-center">
 		<a
 			href="/todos"
-			class="flex items-center justify-center bg-blue-500 px-3 py-2 rounded-3xl text-white"
+			class="flex items-center justify-center bg-blue-500 px-3 py-2 mt-5 rounded-3xl text-white"
 		>
 			<span>Try my To do list here</span>
 		</a>
