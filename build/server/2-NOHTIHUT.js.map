@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../.svelte-kit/adapter-node/entries/pages/_page.js", "../../.svelte-kit/adapter-node/nodes/2.js"],
-  "sourcesContent": ["const prerender = true;\nexport {\n  prerender\n};\n", "import * as shared from '../entries/pages/_page.js';\n\nexport const index = 2;\nexport const component = async () => (await import('../entries/pages/_page.svelte.js')).default;\nexport const file = '_app/immutable/components/pages/_page.svelte-ffa4738f.js';\nexport { shared };\nexport const imports = [\"_app/immutable/components/pages/_page.svelte-ffa4738f.js\",\"_app/immutable/chunks/index-61cef232.js\",\"_app/immutable/chunks/store-6a6375d6.js\",\"_app/immutable/modules/pages/_page.js-07d4ebd9.js\",\"_app/immutable/chunks/_page-d86dbbba.js\"];\nexport const stylesheets = [\"_app/immutable/assets/_page-8529dead.css\"];\n"],
-  "mappings": ";;;;;AAAA;AAAA;AAAA;AAAA;AAAA,IAAM,YAAY;;;ACEX,IAAM,QAAQ;AACd,IAAM,YAAY,aAAa,MAAM,OAAO,+BAAqC;AACjF,IAAM,OAAO;AAEb,IAAM,UAAU,CAAC,4DAA2D,2CAA0C,2CAA0C,qDAAoD,yCAAyC;AAC7P,IAAM,cAAc,CAAC,0CAA0C;",
-  "names": []
-}

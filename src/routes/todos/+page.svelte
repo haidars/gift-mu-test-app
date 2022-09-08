@@ -22,25 +22,20 @@
 	<meta name="description" content="A todo list app" />
 </svelte:head>
 
-<section class="todos pt-10 pb-3 px-4">
+<section class="todos pt-5 pb-3 px-4">
 	<h1 class="text-5xl text-center">Todos</h1>
-	<div class="w-full flex items-center">
-		<a
-			href="/"
-			class="flex items-center justify-center bg-blue-500 px-3 py-2 rounded-3xl text-white">
-			<span>Back to Home page</span>
-		</a>
-	</div>
 
 	<form
 		class="new"
 		action="/todos?/add"
 		method="post"
-		use:enhance={onAddEnhance}>
+		use:enhance={onAddEnhance}
+	>
 		<input
 			name="text"
 			aria-label="Add todo"
-			placeholder="+ tap to add a todo" />
+			placeholder="+ tap to add a todo"
+		/>
 	</form>
 
 	{#each todos as todo (todo.uid)}
@@ -48,23 +43,25 @@
 			class="todo"
 			class:done={todo.done}
 			transition:scale|local={{ start: 0.7 }}
-			animate:flip={{ duration: 200 }}>
+			animate:flip={{ duration: 200 }}
+		>
 			<form
 				action="/todos?/toggle"
 				method="post"
 				use:enhance={({ data }) => {
 					todo.done = !!data.get('done');
-				}}>
+				}}
+			>
 				<input type="hidden" name="uid" value={todo.uid} />
 				<input
 					type="hidden"
 					name="done"
-					value={todo.done ? '' : 'true'} />
+					value={todo.done ? '' : 'true'}
+				/>
 				<button
 					class="toggle"
-					aria-label="Mark todo as {todo.done
-						? 'not done'
-						: 'done'}" />
+					aria-label="Mark todo as {todo.done ? 'not done' : 'done'}"
+				/>
 			</form>
 
 			<form class="text" action="/todos?/edit" method="post" use:enhance>
@@ -73,7 +70,8 @@
 					aria-label="Edit todo"
 					type="text"
 					name="text"
-					value={todo.text} />
+					value={todo.text}
+				/>
 				<button class="save" aria-label="Save todo" />
 			</form>
 
@@ -82,12 +80,14 @@
 				method="post"
 				use:enhance={() => {
 					todo.pending_delete = true;
-				}}>
+				}}
+			>
 				<input type="hidden" name="uid" value={todo.uid} />
 				<button
 					class="delete"
 					aria-label="Delete todo"
-					disabled={todo.pending_delete} />
+					disabled={todo.pending_delete}
+				/>
 			</form>
 		</div>
 	{/each}

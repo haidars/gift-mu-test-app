@@ -3,44 +3,36 @@
 	import '../app.scss';
 	import { onMount, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
-	import { ioClient } from '$lib/socket/connection';
-	import { socketStore } from '$lib/socket/store';
+	import { browser } from '$app/environment';
+	import { destroyIoClient } from '$lib/socket/connection';
+	import { Navbar } from '$lib/Navbar';
+	import { NavProgress } from '$lib/NavProgress';
 
 	export let data = {};
 
 	const layoutData = writable(data);
 	setContext('LAYOUT_DATA', layoutData);
 
-	let messages = [];
-
 	$: if (data !== $layoutData) {
 		$layoutData = data;
 	}
 
 	onMount(() => {
-		ioClient.on('name', (name) => {
-			debugger
-			$socketStore.connecting = false;
-			$socketStore.sid = name;
-		});
-
-		ioClient.on('message', (message) => {
-			messages = [...messages, message];
-		});
-
-		return () => {
-			ioClient.off('message');
-			ioClient.off('name');
-		};
+		return destroyIoClient;
 	});
 </script>
 
-<main class="min-h-[calc(100vh-4rem)]">
+{#if browser}
+	<NavProgress />
+{/if}
+
+<Navbar />
+<main class="min-h-[calc(100vh-5.25rem)] pt-16">
 	<slot />
 </main>
 
 <footer
-	class="fixed bottom-0 left-0 right-0 h-16 w-full flex items-center px-5 text-slate-100 bg-stone-700"
+	class="h-16 w-full flex items-center px-5 text-slate-100 bg-stone-700 mt-5"
 >
 	<div class="flex-1 flex flex-col h-full justify-center min-w-fit">
 		<p class="text-xs">

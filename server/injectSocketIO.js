@@ -1,6 +1,5 @@
 import { Server } from 'socket.io';
 import { allowedOriginsSocketIOMiddleware } from './allowedOrigins.js';
-import { nanoidAsync } from '../src/lib/nanoids/index.js';
 
 
 export const injectSocketIO = server => {
@@ -8,11 +7,6 @@ export const injectSocketIO = server => {
     const io = new Server(server, {
         cookie: false,
         cors: {
-            // origin: (_, callback) => {
-
-            //     callback(null, true);
-            //     return;
-            // },
             origin: allowedOriginsSocketIOMiddleware,
             methods: ['GET', 'POST'],
             allowedHeaders: ['Content-Type', 'Authorization']
@@ -21,16 +15,16 @@ export const injectSocketIO = server => {
 
     io.on('connection', (socket) => {
 
-        const username = `${socket.id}`;
+        const sid = `${socket.id}`;
 
-        socket.emit('name', username);
+        socket.emit('name', sid);
 
-        socket.on('message', message => {
+        socket.on('ping', () => {
 
             io.emit('message', {
-                from: username,
-                message: message,
-                time: new Date().toLocaleString()
+                from: sid,
+                type: 'ping',
+                time: new Date().toUTCString()
             });
         });
     });

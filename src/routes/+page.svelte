@@ -1,14 +1,15 @@
 <script>
 	import { IconHeart } from '$lib/IconHeart';
 	import { IconLoad } from '$lib/IconLoad';
+	import { Message } from '$lib/Message';
 	import { socketStore } from '$lib/socket/store';
 </script>
 
-<section class="w-full flex flex-col pt-10">
+<section class="w-full flex flex-col pt-4">
 	<h1 class="text-5xl w-full text-center">
 		<b class="text-blue-600">I'm alive</b>
 	</h1>
-	<div class="w-full flex justify-center h-40 py-2 px-3">
+	<div class="w-full flex justify-center h-40 pt-2 px-3">
 		<div class="heart-container h-full aspect-square">
 			<IconHeart solid class="h-full w-full text-red-700" />
 		</div>
@@ -21,18 +22,11 @@
 		</div>
 	{:else}
 		<p class="text-center font-bold text-stone-800">
-			Session #{$socketStore.sid}
+			#{$socketStore.sid}
 		</p>
 	{/if}
-	<!-- something -->
-	<div class="w-full flex justify-center">
-		<a
-			href="/todos"
-			class="flex items-center justify-center bg-blue-500 px-3 py-2 mt-5 rounded-3xl text-white"
-		>
-			<span>Try my To do list here</span>
-		</a>
-	</div>
+
+	<Message />
 </section>
 
 <style lang="scss">

@@ -14,20 +14,20 @@ body,
 		height: 8px;
 
 		&-thumb {
-			background-color: var(--app-clr-light-shade);
+			background-color: darkgrey;
 			border-radius: 0.3rem;
 
 			&:hover {
-				background-color: var(--app-clr-medium-base);
+				background-color: dimgray;
 			}
 		}
 
 		&-track {
-			background-color: var(--app-clr-light);
+			background-color: lightgrey;
 			border-radius: 0.3rem;
 
 			&:hover {
-				background-color: var(--app-clr-light-shade);
+				background-color: darkgrey;
 			}
 		}
 	}
