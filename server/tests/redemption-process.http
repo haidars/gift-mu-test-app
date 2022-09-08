@@ -1,0 +1,8 @@
+POST  http://localhost:9991/api/fuuv68js2mU1MqCdKneSoHWt/validate-redemption HTTP/1.1
+content-type: application/json
+Authorisation: Bearer s7WPbhFd3T5aXi2hLf81HdB6ge-ETwwdi7o6
+
+{
+   "token":"sdfdsf",
+   "tz": 240
+}

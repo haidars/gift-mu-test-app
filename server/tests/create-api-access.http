@@ -1,0 +1,7 @@
+POST  http://localhost:9991/test/create-api-acess HTTP/1.1
+content-type: application/json
+
+{
+   "name":"MIPs",
+   "accesses": ["validate-redemption", "process-redemption"]
+}

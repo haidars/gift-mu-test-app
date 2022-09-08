@@ -1,0 +1,31 @@
+{
+	"name": "gift-mu-test-app",
+	"version": "0.0.1",
+	"scripts": {
+		"start": "env-cmd -e production node ./server/index.js",
+		"watch": "env-cmd -e development vite dev",
+		"build": "vite build",
+		"preview": "env-cmd -e development vite preview"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/adapter-node": "next",
+		"@sveltejs/kit": "next",
+		"autoprefixer": "^10.4.4",
+		"cssnano": "^5.1.5",
+		"env-cmd": "^10.1.0",
+		"postcss": "^8.4.12",
+		"sass": "^1.49.9",
+		"svelte": "^3.46.0",
+		"svelte-preprocess": "^4.10.4",
+		"tailwindcss": "^3.0.23",
+		"vite": "^3.1.0"
+	},
+	"type": "module",
+	"dependencies": {
+		"express": "^4.18.1",
+		"nanoid": "^4.0.0",
+		"socket.io": "^4.5.2",
+		"socket.io-client": "^4.5.2"
+	}
+}
