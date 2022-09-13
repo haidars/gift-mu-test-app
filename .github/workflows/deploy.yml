@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: gift-runner
+    runs-on: [self-hosted, gift-runner]
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3
