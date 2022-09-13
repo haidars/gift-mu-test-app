@@ -13,3 +13,10 @@ jobs:
       - name: Build the image
         run: |
           env
+      - name: test scope
+        run: |
+          ls -la /
+          sudo cd /home/gift
+          ls -la 
+          sudo docker ps
+          
